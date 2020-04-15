@@ -1,0 +1,18 @@
+<h3>{{ recipe.name }}</h3>
+
+<span class="pull-right">
+  <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px;">
+</span>
+
+<div class="btn-group">
+  <button class="btn btn-primary dropdown-toggle">
+    Manage Recipe <b class="caret"></b>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">To Recipe Detail</a></li>
+    <li><a href="#">Edit</a></li>
+    <li><a href="#">Delete</a></li>
+  </ul>
+</div>
+
+<p>{{ recipe.description }}</p>
