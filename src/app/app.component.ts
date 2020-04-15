@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,6 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild(ShoppingEditComponent) shoppingEditComponent: ShoppingEditComponent
-
   ngOnInit() {
   }
 
