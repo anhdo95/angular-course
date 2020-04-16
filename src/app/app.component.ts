@@ -6,10 +6,16 @@ import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  selectedFeature = 'recipes'
+
   ngOnInit() {
   }
 
   ngAfterViewInit() {
 
+  }
+
+  onNavigate(selectedFeature) {
+    this.selectedFeature = selectedFeature
   }
 }

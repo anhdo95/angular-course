@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { Ingredient } from 'src/shared/ingredient.model';
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
 
@@ -21,7 +21,6 @@ export class ShoppingListComponent implements OnInit {
   }
 
   onIngredientCreated(newIngredient: Ingredient) {
-    console.log('this.shoppingEditComponent', this.shoppingEditComponent)
     this.ingredients.push(newIngredient)
   }
 }
