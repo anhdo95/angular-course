@@ -11,7 +11,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
-import { UnlessDirective } from '../shared/directives/unless.directive';
+import { UnlessDirective } from 'src/shared/directives/unless.directive';
+import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UnlessDirective } from '../shared/directives/unless.directive';
     RecipeDetailComponent,
     BasicHighlightDirective,
     UnlessDirective,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
