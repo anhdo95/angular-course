@@ -18,6 +18,6 @@ export class RecipeListComponent implements OnInit {
   }
 
   onSelect(recipe: Recipe) {
-    this.recipesService.setSelectedRecipe(recipe)
+    this.recipesService.recipeSelected.emit(recipe)
   }
 }

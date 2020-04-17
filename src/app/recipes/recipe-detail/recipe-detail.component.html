@@ -1,16 +1,18 @@
 <div *ngIf="recipe" class="row">
-  <div class="btn-group" appDropdown>
-    <button class="btn btn-primary dropdown-toggle">
-      Manage Recipe <b class="caret"></b>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">To Recipe Detail</a></li>
-      <li><a href="#">Edit</a></li>
-      <li><a href="#">Delete</a></li>
-    </ul>
-  </div>
+  <div class="col-xs-12">
+    <div class="btn-group" appDropdown>
+      <button class="btn btn-primary dropdown-toggle">
+        Manage Recipe <b class="caret"></b>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">To Recipe Detail</a></li>
+        <li><a href="#">Edit</a></li>
+        <li><a href="#">Delete</a></li>
+      </ul>
+    </div>
 
-  <h3>{{ recipe.name }}</h3>
-  <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px;">
-  <p>{{ recipe.description }}</p>
+    <h3>{{ recipe.name }}</h3>
+    <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px;">
+    <p>{{ recipe.description }}</p>
+  </div>
 </div>
