@@ -1,6 +1,9 @@
 import { Recipe } from 'src/app/recipes/recipe.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class RecipesService {
   recipes: Recipe[] = [
     new Recipe('A cake', 'A great food!', 'https://www.cscassets.com/recipes/wide_cknew/wide_32.jpg')
