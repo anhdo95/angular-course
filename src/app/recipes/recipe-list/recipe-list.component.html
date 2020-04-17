@@ -2,6 +2,10 @@
   <div class="col-xs-12"><button class="btn btn-primary">New Recipe</button></div>
   <div class="col-xs-12">
     <hr>
-    <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" [recipeName]="recipe.name"></app-recipe-item>
+    <app-recipe-item
+      *ngFor="let recipe of recipes"
+      [recipe]="recipe"
+      [recipeName]="recipe.name"
+      (click)="onSelect(recipe)"></app-recipe-item>
   </div>
 </div>

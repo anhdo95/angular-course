@@ -13,6 +13,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
+import { RecipesService } from 'src/service/recipes.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    RecipesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
