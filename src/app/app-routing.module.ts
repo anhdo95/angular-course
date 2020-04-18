@@ -8,11 +8,14 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: RecipesComponent, pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent, children: [
+    { path: 'new', component: RecipeEditComponent },
     { path: ':id', component: RecipeDetailComponent },
+    { path: ':id/edit', component: RecipeEditComponent },
   ] },
   { path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: NotFoundComponent },

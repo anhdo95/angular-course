@@ -16,6 +16,7 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UnlessDirective,
     DropdownDirective,
     NotFoundComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
