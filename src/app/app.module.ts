@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -14,7 +16,6 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [

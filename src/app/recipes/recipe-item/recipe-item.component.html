@@ -1,4 +1,4 @@
-<a class="list-group-item clearfix" style="cursor: pointer;" (click)="goToRecipeDetail()">
+<a class="list-group-item clearfix" routerLinkActive="active" [routerLink]="[recipe.id]" style="cursor: pointer;" >
   <div class="pull-left">
     <h4 class="list-group-item-heading">
       {{ recipe.name }}

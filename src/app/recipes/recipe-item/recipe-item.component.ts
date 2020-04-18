@@ -11,6 +11,8 @@ export class RecipeItemComponent implements OnInit {
   @Input() recipe: Recipe
   @Input() recipeName: string
 
+  selected: boolean
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

@@ -17,8 +17,6 @@ export class RecipeDetailComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getRecipeById(this.route.snapshot.params.id)
-
     this.route.params.subscribe((updatedParams: Params) => {
       this.getRecipeById(updatedParams.id)
     })
