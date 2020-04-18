@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { RouterModule, Route } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,15 +14,7 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-const appRoutes: Route[] = [
-  { path: '', component: RecipesComponent, pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent },
-  { path: 'recipes/:id', component: RecipeDetailComponent },
-  { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: 'not-found' },
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +34,7 @@ const appRoutes: Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
