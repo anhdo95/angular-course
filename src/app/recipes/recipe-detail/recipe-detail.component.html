@@ -11,8 +11,13 @@
       </ul>
     </div>
 
+    <img [src]="recipe.imagePath" class="img-responsive">
     <h3>{{ recipe.name }}</h3>
-    <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px;">
     <p>{{ recipe.description }}</p>
+    <ul class="list-group">
+      <li *ngFor="let ingredient of recipe.ingredients" class="list-group-item">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </li>
+    </ul>
   </div>
 </div>
