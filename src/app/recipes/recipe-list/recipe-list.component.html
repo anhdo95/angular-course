@@ -5,7 +5,6 @@
     <app-recipe-item
       *ngFor="let recipe of recipes"
       [recipe]="recipe"
-      [recipeName]="recipe.name"
-      (click)="onSelect(recipe)"></app-recipe-item>
+      [recipeName]="recipe.name"></app-recipe-item>
   </div>
 </div>

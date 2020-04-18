@@ -9,19 +9,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
-  selectedRecipe: Recipe
-  subscription: Subscription
-
-  constructor(private recipesService: RecipesService) {
-    this.subscription = recipesService.recipeSelected.subscribe(
-      recipe => this.selectedRecipe = recipe
-    )
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe()
   }
 }

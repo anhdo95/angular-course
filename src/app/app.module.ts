@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { RouterModule, Route } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +14,14 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
+
+const appRoutes: Route[] = [
+  { path: '', component: RecipesComponent },
+  { path: 'recipes', component: RecipesComponent },
+  { path: 'recipes/:id', component: RecipeDetailComponent },
+  { path: 'shopping-list', component: ShoppingListComponent },
+  { path: '*', component: RecipesComponent },
+]
 
 @NgModule({
   declarations: [
@@ -30,7 +39,8 @@ import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
