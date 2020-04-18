@@ -14,13 +14,15 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { UnlessDirective } from 'src/shared/directives/unless.directive';
 import { DropdownDirective } from 'src/shared/directives/dropdown.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Route[] = [
-  { path: '', component: RecipesComponent },
+  { path: '', component: RecipesComponent, pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:id', component: RecipeDetailComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
-  { path: '*', component: RecipesComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ]
 
 @NgModule({
@@ -36,6 +38,7 @@ const appRoutes: Route[] = [
     BasicHighlightDirective,
     UnlessDirective,
     DropdownDirective,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
