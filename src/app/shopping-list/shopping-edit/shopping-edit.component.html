@@ -69,6 +69,17 @@
       </div>
     </div>
 
+    <div class="row form-group" formArrayName="hobbies">
+      <div class="col-sm-5">
+        <label for="name">Hobbies</label>
+      </div>
+      <div class="col-sm-7">
+        <button class="btn btn-default" (click)="addHobby()">Add a hobby</button>
+        <hr>
+        <input *ngFor="let hobbyControl of hobbyControls; let i = index" [formControlName]="i" type="text" class="form-control" style="margin-bottom: 0.5rem;">
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-sm-offset-5 col-sm-7">
         <button [disabled]="signUpForm.invalid" class="btn btn-success" type="submit">Sign up</button>
