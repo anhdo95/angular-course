@@ -38,6 +38,9 @@ export class ShoppingEditComponent implements OnInit {
 
   onSubmit() {
     console.log('this.signUpForm', this.signUpForm)
+    this.signUpForm.reset({
+      gender: 'male',
+    })
   }
 
   addHobby() {
