@@ -1,20 +1,77 @@
 <div class="row">
-  <form class="col-xs-12 col-sm-9 col-md-6" (submit)="onSubmit()">
-    <div class="row form-group">
+  <!-- <form class="col-xs-12 col-sm-9 col-md-6" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row form-group" ngModelGroup="basic">
       <div class="col-sm-5">
         <label for="name">Name</label>
       </div>
-      <div class="col-sm-7"><input #nameInput name="name" type="text" id="name" class="form-control"></div>
+      <div class="col-sm-7">
+        <input name="name" type="text" id="name" class="form-control" ngModel #name="ngModel" required>
+        <div class="text-danger" *ngIf="name.touched && name.invalid">Please enter a valid name</div>
+      </div>
     </div>
     <div class="row form-group">
       <div class="col-sm-5">
         <label for="amount">Amount</label>
       </div>
-      <div class="col-sm-7"><input #amountInput name="amount" type="number" id="amount" class="form-control"></div>
+      <div class="col-sm-7">
+        <input name="amount" type="number" id="amount" class="form-control" [ngModel]="1" required>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-7 col-sm-offset-5">
-        <ng-content></ng-content>
+        <button #createButton class="btn btn-success" type="submit" [disabled]="f.invalid">Create</button>
+        <button class="btn btn-danger" type="button">Delete</button>
+        <button class="btn btn-default" type="button">Clear</button>
+      </div>
+    </div>
+  </form> -->
+
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="col-xs-12 col-sm-9 col-md-6">
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="name">Username</label>
+      </div>
+      <div class="col-sm-7">
+        <input formControlName="username" type="text" class="form-control">
+        <div
+          *ngIf="signUpForm.get('username').touched && signUpForm.get('username').invalid"
+          class="text-danger">
+          Please enter a invalid username
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="name">Email</label>
+      </div>
+      <div class="col-sm-7">
+        <input formControlName="email" type="text" class="form-control">
+        <div
+          *ngIf="signUpForm.get('email').touched && signUpForm.get('email').invalid"
+          class="text-danger">
+          Please enter a invalid email
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="name">Gender</label>
+      </div>
+      <div class="col-sm-7">
+        <div class="radio">
+          <label><input type="radio" formControlName="gender" value="male">Male</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" formControlName="gender" value="female">Female</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-offset-5 col-sm-7">
+        <button [disabled]="signUpForm.invalid" class="btn btn-success" type="submit">Sign up</button>
       </div>
     </div>
   </form>

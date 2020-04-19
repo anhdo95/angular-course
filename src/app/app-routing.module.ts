@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
-  { path: '', component: RecipesComponent, pathMatch: 'full' },
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent, children: [
     { path: 'new', component: RecipeEditComponent },
     { path: ':id', component: RecipeDetailComponent },

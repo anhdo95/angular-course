@@ -18,10 +18,6 @@ export class RecipeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(recipe: Recipe) {
-    this.recipesService.recipeSelected.emit(recipe)
-  }
-
   onCreateRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route })
   }
