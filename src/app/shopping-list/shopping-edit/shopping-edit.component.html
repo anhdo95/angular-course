@@ -36,7 +36,12 @@
         <div
           *ngIf="signUpForm.get('username').touched && signUpForm.get('username').invalid"
           class="text-danger">
-          Please enter a invalid username
+          <span *ngIf="signUpForm.get('username').errors.required">
+            Please enter a username
+          </span>
+          <span *ngIf="signUpForm.get('username').errors.nameIsForbidden">
+            The username is forbidden
+          </span>
         </div>
       </div>
     </div>

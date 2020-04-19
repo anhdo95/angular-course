@@ -11,6 +11,7 @@ export class ShoppingEditComponent implements OnInit {
   @Output() ingradientCreated = new EventEmitter<Ingredient>()
 
   signUpForm: FormGroup
+  forbiddenUsernames = ['admin', 'superadmin']
 
   get hobbyControls() {
     return (this.signUpForm.get('hobbies') as FormArray).controls
@@ -20,7 +21,10 @@ export class ShoppingEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      username: new FormControl(null, Validators.required),
+      username: new FormControl(null, [
+        Validators.required,
+        this.forbiddenUsernamesValidator.bind(this)
+      ]),
       email: new FormControl(null, [
         Validators.required,
         Validators.email
@@ -39,6 +43,13 @@ export class ShoppingEditComponent implements OnInit {
 
     const hobbies = <FormArray>this.signUpForm.get('hobbies')
     hobbies.push(control)
+  }
+
+  forbiddenUsernamesValidator(control: FormControl): { [s: string]: boolean } {
+    if (this.forbiddenUsernames.includes(control.value)) {
+      return { nameIsForbidden: true }
+    }
+    return null
   }
 
   // onSubmit(form: NgForm) {
