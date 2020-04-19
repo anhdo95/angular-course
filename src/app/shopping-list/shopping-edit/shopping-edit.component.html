@@ -55,7 +55,15 @@
         <div
           *ngIf="signUpForm.get('email').touched && signUpForm.get('email').invalid"
           class="text-danger">
-          Please enter a invalid email
+          <span *ngIf="signUpForm.get('email').errors.required">
+            Please enter an email
+          </span>
+          <span *ngIf="signUpForm.get('email').errors.email">
+            Please enter a valid email
+          </span>
+          <span *ngIf="signUpForm.get('email').errors.emailIsForbidden">
+            The email is forbidden
+          </span>
         </div>
       </div>
     </div>

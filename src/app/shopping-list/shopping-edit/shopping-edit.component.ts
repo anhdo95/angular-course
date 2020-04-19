@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Ingredient } from 'src/shared/ingredient.model';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -12,6 +13,7 @@ export class ShoppingEditComponent implements OnInit {
 
   signUpForm: FormGroup
   forbiddenUsernames = ['admin', 'superadmin']
+  forbiddenEmails = ['admin@gmail.com', 'superadmin@gmail.com']
 
   get hobbyControls() {
     return (this.signUpForm.get('hobbies') as FormArray).controls
@@ -28,7 +30,7 @@ export class ShoppingEditComponent implements OnInit {
       email: new FormControl(null, [
         Validators.required,
         Validators.email
-      ]),
+      ], this.forbiddenEmailAsyncValidator.bind(this)),
       gender: new FormControl('male'),
       hobbies: new FormArray([])
     })
@@ -50,6 +52,17 @@ export class ShoppingEditComponent implements OnInit {
       return { nameIsForbidden: true }
     }
     return null
+  }
+
+  forbiddenEmailAsyncValidator(control: FormControl): Promise<any> | Observable<any> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        if (this.forbiddenEmails.includes(control.value.toLowerCase())) {
+          return resolve({ emailIsForbidden: true })
+        }
+        resolve(null)
+      }, 500)
+    })
   }
 
   // onSubmit(form: NgForm) {
