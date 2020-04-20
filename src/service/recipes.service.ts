@@ -42,8 +42,8 @@ export class RecipesService {
   ]
   recipeSelected = new EventEmitter<Recipe>()
 
-  getById(id: Number): Recipe {
-    return this.recipes.find(r => r.id === id)
+  getById(id: Number | String): Recipe {
+    return this.recipes.find(r => r.id === +id)
   }
 
   add(recipe: Recipe) {
@@ -52,6 +52,12 @@ export class RecipesService {
     }
 
     this.recipes.push(recipe)
+  }
+
+  update(recipe: Recipe) {
+    const recipeIndex = this.recipes.findIndex(r => r.id === recipe.id)
+
+    this.recipes[recipeIndex] = recipe
   }
 
   remove(recipe: Recipe) {
