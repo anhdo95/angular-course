@@ -47,6 +47,10 @@ export class RecipesService {
   }
 
   add(recipe: Recipe) {
+    if (!recipe.id) {
+      recipe.id = this.recipes.length + 1
+    }
+
     this.recipes.push(recipe)
   }
 

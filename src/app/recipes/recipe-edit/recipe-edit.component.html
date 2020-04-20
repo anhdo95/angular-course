@@ -1,1 +1,35 @@
-<p>recipe-edit works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-success" type="submit" [disabled]="recipeForm.invalid">
+          {{ recipe.id ? 'Save' : 'Add' }}
+        </button>
+        <button class="btn btn-danger" type="button">Cancel</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-sm-7">
+        <input type="text" formControlName="name" id="name" class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="imagePath">Image</label>
+      </div>
+      <div class="col-sm-7">
+        <input type="text" formControlName="imagePath" id="imagePath" class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-5">
+        <label for="description">Description</label>
+      </div>
+      <div class="col-sm-7">
+        <textarea id="description" formControlName="description" rows="4" class="form-control"></textarea>
+      </div>
+    </div>
+</form>
